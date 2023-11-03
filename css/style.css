@@ -8,15 +8,14 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
     --bg-color: #1f242d;
-    ---second-bg-color: #323946;
+    --second-bg-color: #323946;
     --text-color: #fff;
     --main-color: #0ef;
-
 }
 
 html {
@@ -27,8 +26,9 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
-
+    margin: 0;
 }
+
 .header {
     position: fixed;
     top: 0;
@@ -41,6 +41,7 @@ body {
     align-items: center;
     z-index: 100;
 }
+
 .logo {
     font-size: 2.5rem;
     color: var(--text-color);
@@ -48,11 +49,16 @@ body {
     cursor: default;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
 .navbar a {
     font-size: 1.7rem;
     color: var(--text-color);
     margin-left: 4rem;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .navbar a:hover,
@@ -60,7 +66,7 @@ body {
     color: var(--main-color);
 }
 
-#menu-icon {
+.menu-icon {
     font-size: 3.6rem;
     color: var(--text-color);
     display: none;
@@ -73,15 +79,17 @@ body {
 }
 
 .home-img {
-    width: 35vw;
+    width: 100%;
+}
+
+.home-content {
+    text-align: center;
+    padding: 0 2rem;
 }
 
 .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
-}
-
-.home-content h3:nth-last-of-type(2) {
     margin-bottom: 2rem;
 }
 
@@ -97,6 +105,14 @@ span {
 
 .home-content p {
     font-size: 1.6rem;
+    margin-bottom: 3rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
 }
 
 .social-media a {
@@ -106,17 +122,17 @@ span {
     width: 4rem;
     height: 4rem;
     background: transparent;
-    border: .2rem solid var(--main-color);
+    border: 0.2rem solid var(--main-color);
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main-color);
-    margin: 3rem 1.5rem 3rem 0;
-    transition: .5 ease;
+    margin: 0 1.5rem;
+    transition: 0.5s;
 }
 
 .social-media a:hover {
     background: var(--main-color);
-    color: var(---second-bg-color);
+    color: var(--second-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
 }
 
@@ -126,10 +142,10 @@ span {
     background: var(--main-color);
     border-radius: 4rem;
     box-shadow: 0 0 1rem var(--main-color);
-    color: var(---second-bg-color);
-    letter-spacing: .1rem;
+    color: var(--second-bg-color);
+    letter-spacing: 0.1rem;
     font-weight: 600;
-    transition: .5s ease;
+    transition: 0.5s;
 }
 
 .btn:hover {
@@ -140,22 +156,25 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     gap: 2rem;
-    background: var(---second-bg-color);
+    background: var(--second-bg-color);
+    padding: 3rem 0;
+    text-align: center;
 }
 
 .about-img img {
-    width: 35vw;
+    width: 100%;
 }
 
 .heading {
-    text-align: center;
     font-size: 4.5rem;
 }
 
 .about-content h2 {
     text-align: left;
     line-height: 1.2;
+    padding: 0 2rem;
 }
 
 .about-content h3 {
@@ -164,11 +183,13 @@ span {
 
 .about-content p {
     font-size: 1.6rem;
-    margin: 2rem 0 3rem;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
 }
 
 .services h2 {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 .services-container {
@@ -181,12 +202,12 @@ span {
 
 .services-container .services-box {
     flex: 1 1 30rem;
-    background: var(---second-bg-color);
+    background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
     text-align: center;
-    border: .2rem solid var(--bg-color);
-    transition: .5s ease;
+    border: 0.2rem solid var(--bg-color);
+    transition: 0.5s;
 }
 
 .services-container .services-box:hover {
@@ -205,5 +226,37 @@ span {
 
 .services-box p {
     font-size: 1.6rem;
-    margin: 1rem 0 3rem;
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+
+    .navbar a {
+        margin: 1rem;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+        font-size: 3.6rem;
+        color: var(--text-color);
+        cursor: pointer;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .home-img,
+    .about-img img {
+        width: 100%;
+        height: auto;
+    }
 }
